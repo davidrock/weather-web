@@ -1,0 +1,12 @@
+# Add files here to ignore them from prettier formatting
+
+/dist
+/coverage
+angular.json
+
+# Ignorando os templates do schematic de criação de aplicação
+/tools/schematics/create-app/files
+
+# Ignorando CHANGELOG
+CHANGELOG.md
+.docusaurus/
