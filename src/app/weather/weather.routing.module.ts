@@ -5,7 +5,7 @@ import { ForecastComponent } from './forecast/forecast.component';
 const routes: Routes = [
     {
         path: '**',
-        redirectTo: 'general',
+        redirectTo: 'forecast',
     },
     {
         path: 'forecast',

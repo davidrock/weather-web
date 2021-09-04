@@ -3,12 +3,12 @@ import { Store, StoreConfig } from '@datorama/akita';
 import { Forecast } from 'src/app/shared';
 
 export interface WeatherState {
-    forecast?: Forecast;
+    forecast?: Forecast[];
 }
 
 export function createInitialState(): WeatherState {
     return {
-        forecast: undefined,
+        forecast: [],
     };
 }
 
@@ -19,8 +19,12 @@ export class WeatherStore extends Store<WeatherState> {
         super(createInitialState());
     }
 
-    updateWeather(forecast: Forecast): void {
-        console.info('WeatherStore.updateWeather()');
-        this.update({ forecast });
+    addUniqueWeather(data: Forecast): void {
+        const current = this.getValue().forecast ?? [];
+        const newList = current.filter(item => item.id !== data.id);
+
+        newList.push(data);
+
+        this.update({ forecast: newList });
     }
 }

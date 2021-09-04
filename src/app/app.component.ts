@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Forecast } from './shared';
 import { WeatherQuery } from './weather/state/weather.query';
@@ -9,19 +10,19 @@ import { WeatherService } from './weather/state/weather.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
     title = 'weather-forecaster';
-    forecast$: Observable<Forecast | undefined>;
+    forecast$: Observable<Forecast[]>;
+    form: FormGroup;
 
-    constructor(private weatherService: WeatherService, private weatherQuery: WeatherQuery) {
-        this.forecast$ = this.weatherQuery.forecast$;
+    constructor(private weatherService: WeatherService, private weatherQuery: WeatherQuery, private fb: FormBuilder) {
+        this.forecast$ = this.weatherQuery.forecast$ as Observable<Forecast[]>;
+        this.form = this.fb.group({
+            city: '',
+        });
     }
 
-    ngOnInit(): void {
-        this.weatherService.getWeather('Amsterdam');
-
-        this.forecast$.subscribe(forecast => {
-            console.log(forecast);
-        });
+    click(): void {
+        this.weatherService.getWeather(this.form.value.city);
     }
 }

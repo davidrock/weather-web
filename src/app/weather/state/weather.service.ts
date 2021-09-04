@@ -12,7 +12,7 @@ export class WeatherService {
         this.http
             .get<Forecast>(`${environment.weatherApiUrl}?q=${city}&appid=${environment.weatherApiKey}`)
             .subscribe((data: Forecast) => {
-                this.weatherStore.update({ forecast: data });
+                this.weatherStore.addUniqueWeather(data);
             });
     }
 }

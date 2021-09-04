@@ -8,6 +8,7 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherModule } from './weather/weather.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [AppComponent],
@@ -16,6 +17,8 @@ import { WeatherModule } from './weather/weather.module';
         AppRoutingModule,
         HttpClientModule,
         WeatherModule,
+        FormsModule,
+        ReactiveFormsModule,
         environment.production ? [] : AkitaNgDevtools.forRoot(),
         AkitaNgRouterStoreModule,
     ],

@@ -1,5 +1,13 @@
 <header>
     <div class="bg-red-500 h-6 w-full"></div>
 </header>
+<form [formGroup]="form">
+    <input formControlName="city" type="text" placeholder="Enter city name" />
+    <button (click)="click()">AMS</button>
+</form>
+<ul>
+    <li *ngFor="let item of forecast$ | async">{{ item.name }}</li>
+</ul>
+
 <router-outlet></router-outlet>
 <footer class="">Footer</footer>
