@@ -3,18 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { ForecastComponent } from './forecast/forecast.component';
 
 const routes: Routes = [
-  {
-    path: '**',
-    redirectTo: 'general'
-  },
-  {
-    path: 'forecast',
-    component: ForecastComponent
-  },
+    {
+        path: '**',
+        redirectTo: 'general',
+    },
+    {
+        path: 'forecast',
+        component: ForecastComponent,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class WeatherRoutingModule { }
+export class WeatherRoutingModule {}
