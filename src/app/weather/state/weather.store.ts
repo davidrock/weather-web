@@ -7,7 +7,9 @@ export interface WeatherState {
 }
 
 export function createInitialState(): WeatherState {
-    return {};
+    return {
+        forecast: undefined,
+    };
 }
 
 @Injectable({ providedIn: 'root' })
@@ -15,5 +17,10 @@ export function createInitialState(): WeatherState {
 export class WeatherStore extends Store<WeatherState> {
     constructor() {
         super(createInitialState());
+    }
+
+    updateWeather(forecast: Forecast): void {
+        console.info('WeatherStore.updateWeather()');
+        this.update({ forecast });
     }
 }
