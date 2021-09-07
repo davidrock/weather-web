@@ -5,8 +5,10 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './forecast.component.html',
     styleUrls: ['./forecast.component.scss'],
 })
-export class ForecastComponent implements OnInit {
-    constructor() {}
+export class ForecastComponent {
+    defaultCities: string[];
 
-    ngOnInit(): void {}
+    constructor() {
+        this.defaultCities = ['Rome', 'Paris', 'Amsterdam', 'Madrid'];
+    }
 }

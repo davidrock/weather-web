@@ -1,0 +1,10 @@
+<a (click)="openCity(city)">
+    <div
+        class="h-48 w-full flex bg-cover bg-gray-400 border border-black"
+        [style.background-image]="'url(' + bgImage + ')'"
+    >
+        <div class="text-white text-center m-auto bg-blue-50 bg-opacity-40 bg-cover w-full h-full">
+            <span>{{ city }}</span>
+        </div>
+    </div>
+</a>
