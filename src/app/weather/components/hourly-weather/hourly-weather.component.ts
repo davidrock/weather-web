@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
 import { Observable } from 'rxjs';
-import { Forecast } from 'src/app/shared';
+import { Forecast } from 'src/app/shared/models/forecast.model';
 import { WeatherQuery } from '../../state/weather.query';
 
 @Component({
@@ -21,8 +21,6 @@ export class HourlyWeatherComponent {
             path: 'assets/animations/windy-cloud.json',
         };
     }
-
-    // ngOnInit(): void {}
 
     styles: Partial<CSSStyleDeclaration> = {
         maxWidth: '60px',

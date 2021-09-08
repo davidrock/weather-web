@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
 import { CityService } from 'src/app/services/city.service';
-import { Forecast } from 'src/app/shared';
+import { Forecast } from 'src/app/shared/models/forecast.model';
 import { WeatherService } from '../../state/weather.service';
 
 @Component({
@@ -43,7 +43,7 @@ export class CityCardComponent implements OnInit {
         this.bgImage = `https://source.unsplash.com/random/800x600?sig=${this.city}`;
 
         if (this.city) {
-            this.cityService.getCityImage(this.city.name).subscribe(res => {
+            this.cityService.getCityImage(this.city.city.name).subscribe(res => {
                 console.log(res);
                 this.bgImage = res.hits[0].webformatURL;
             });

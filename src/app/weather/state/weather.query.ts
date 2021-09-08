@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@datorama/akita';
 import { Observable } from 'rxjs';
-import { Forecast } from 'src/app/shared';
+import { Forecast } from 'src/app/shared/models/forecast.model';
 import { WeatherStore, WeatherState } from './weather.store';
 
 @Injectable({ providedIn: 'root' })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
-import { Forecast } from 'src/app/shared';
+import { Forecast } from 'src/app/shared/models/forecast.model';
 
 export interface WeatherState {
     forecast?: Forecast[];
@@ -23,7 +23,7 @@ export class WeatherStore extends Store<WeatherState> {
 
     addUniqueWeather(data: Forecast): void {
         const current = this.getValue().forecast ?? [];
-        const newList = current.filter(item => item.id !== data.id);
+        const newList = current.filter(item => item.city.id !== data.city.id);
 
         newList.push(data);
 

@@ -1,7 +1,5 @@
+import { Pod } from './pod.model';
+
 export interface Sys {
-    type: number;
-    id: number;
-    country: string;
-    sunrise: number;
-    sunset: number;
+  pod: Pod;
 }

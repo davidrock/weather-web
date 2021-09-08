@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { mergeMap } from 'rxjs/operators';
 import { CityService } from 'src/app/services/city.service';
-import { Forecast } from 'src/app/shared';
+import { Forecast } from 'src/app/shared/models/forecast.model';
 import { environment } from 'src/environments/environment';
 import { WeatherStore } from './weather.store';
 
@@ -12,8 +11,9 @@ export class WeatherService {
 
     getWeather(city: string): void {
         this.http
-            .get<Forecast>(`${environment.weatherApiUrl}?q=${city}&appid=${environment.weatherApiKey}&units=metric`)
+            .get<Forecast>(`${environment.forecastApiUrl}?q=${city}&appid=${environment.weatherApiKey}&units=metric`)
             .subscribe((forecast: Forecast) => {
+              debugger
                 this.weatherStore.addUniqueWeather(forecast);
             });
     }
