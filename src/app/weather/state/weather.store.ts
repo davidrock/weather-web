@@ -4,11 +4,13 @@ import { Forecast } from 'src/app/shared';
 
 export interface WeatherState {
     forecast?: Forecast[];
+    selectedCity?: Forecast;
 }
 
 export function createInitialState(): WeatherState {
     return {
         forecast: [],
+        selectedCity: undefined,
     };
 }
 
@@ -26,5 +28,13 @@ export class WeatherStore extends Store<WeatherState> {
         newList.push(data);
 
         this.update({ forecast: newList });
+    }
+
+    setSelectedCity(city: Forecast | undefined): void {
+        if (!city) {
+            return;
+        }
+
+        this.update({ selectedCity: city });
     }
 }

@@ -17,4 +17,8 @@ export class WeatherService {
                 this.weatherStore.addUniqueWeather(forecast);
             });
     }
+
+    setSelectedCity(city: Forecast | undefined): void {
+        this.weatherStore.setSelectedCity(city);
+    }
 }

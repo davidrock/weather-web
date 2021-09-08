@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
 import { CityService } from 'src/app/services/city.service';
 import { Forecast } from 'src/app/shared';
+import { WeatherService } from '../../state/weather.service';
 
 @Component({
     selector: 'app-city-card',
@@ -15,7 +16,7 @@ export class CityCardComponent implements OnInit {
     optSunny: AnimationOptions;
     optWindy: AnimationOptions;
 
-    constructor(private cityService: CityService) {
+    constructor(private cityService: CityService, private weatherService: WeatherService) {
         this.bgImage = 'https://source.unsplash.com/random/800x600';
         this.optStorm = {
             path: 'assets/animations/storm.json',
@@ -50,6 +51,6 @@ export class CityCardComponent implements OnInit {
     }
 
     openCity(city: Forecast | undefined): void {
-        console.log(city);
+        this.weatherService.setSelectedCity(city);
     }
 }

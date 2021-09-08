@@ -7,10 +7,12 @@ import { WeatherStore, WeatherState } from './weather.store';
 @Injectable({ providedIn: 'root' })
 export class WeatherQuery extends Query<WeatherState> {
     readonly forecast$: Observable<Forecast[] | undefined>;
+    readonly selectedCity$: Observable<Forecast | undefined>;
 
     constructor(protected store: WeatherStore) {
         super(store);
 
         this.forecast$ = this.select(state => state.forecast);
+        this.selectedCity$ = this.select(state => state.selectedCity);
     }
 }
