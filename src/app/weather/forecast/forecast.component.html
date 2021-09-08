@@ -1,3 +1,7 @@
-<div class="" *ngFor="let city of citiesForecast| async">
-    <app-city-card [city]="city"></app-city-card>
+<div class="flex w-screen content-center justify-around mt-8">
+    <div class="grid grid-flow-col gap-4">
+        <div class="flex" *ngFor="let city of citiesForecast | async">
+            <app-city-card [city]="city"></app-city-card>
+        </div>
+    </div>
 </div>

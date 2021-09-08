@@ -1,19 +1,18 @@
 <a (click)="openCity(city)">
-    <div
-        class="h-48 w-full flex bg-cover bg-gray-400 border border-black"
-        [style.background-image]="'url(' + bgImage + ')'"
-    >
-        <div class="text-center bg-blue-50 bg-opacity-40 m-auto bg-cover w-full h-full">
-            <!-- <div class="flex flex-col h-full w-full"> -->
-            <h1 class="text-white text-shadow-lg font-bold text-4xl m-2">{{ city?.name }}</h1>
-
-            <div class="flex w-full items-center justify-evenly">
-                <div class="text-white font-bold text-2xl p-1 bg-black bg-opacity-50 rounded-xl">
-                    <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-                    32º C
+    <div class="flex w-72 h-72">
+        <div class="h-full w-full rounded-3xl bg-cover" [style.background-image]="'url(' + bgImage + ')'">
+            <div class="flex flex-col justify-around bg-blue-50 w-full h-full bg-opacity-20 bg-cover">
+                <h1 class="text-white text-center mx-auto text-shadow-lg font-bold text-3xl">{{ city?.name }}</h1>
+                <div class="flex flex-row justify-around">
+                    <div class="flex flex-col p-2 text-white font-bold text-xl bg-black bg-opacity-30 rounded-3xl">
+                        <!-- <ng-lottie [styles]="styles" [options]="optSunny"></ng-lottie> -->
+                        <div class="mt-2">{{ city?.main ? city!.main.temp : '-' }} &deg;C</div>
+                    </div>
+                    <div class="flex flex-col p-2 text-white font-bold text-xl bg-black bg-opacity-30 rounded-3xl">
+                        <!-- <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie> -->
+                        <div class="mt-2">{{ city?.wind ? city!.wind.speed : '-' }} m/s</div>
+                    </div>
                 </div>
-                <div class="text-white font-bold text-2xl">3km</div>
-                <div class="text-white font-bold text-2xl">35º C</div>
             </div>
         </div>
     </div>

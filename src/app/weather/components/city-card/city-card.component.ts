@@ -24,7 +24,7 @@ export class CityCardComponent implements OnInit {
             path: 'assets/animations/sunny.json',
         };
         this.optWindy = {
-            path: 'assets/animations/windy.json',
+            path: 'assets/animations/windy-cloud.json',
         };
     }
 
