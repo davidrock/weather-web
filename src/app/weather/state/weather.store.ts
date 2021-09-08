@@ -25,6 +25,10 @@ export class WeatherStore extends Store<WeatherState> {
         const current = this.getValue().forecast ?? [];
         const newList = current.filter(item => item.city.id !== data.city.id);
 
+        data.list.map(item => {
+            item.date = new Date(item.dt * 1000);
+        });
+
         newList.push(data);
 
         this.update({ forecast: newList });

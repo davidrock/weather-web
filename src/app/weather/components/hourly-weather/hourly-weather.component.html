@@ -1,65 +1,14 @@
 <div class="container mx-auto mt-16">
     <h1 class="text-2xl">{{ (selectedCity$ | async)?.city?.name }}</h1>
     <div class="grid grid-flow-col justify-between mt-4">
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
-        </div>
-        <div class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border">
-            <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie>
-            <div>20º C</div>
-            <div>09:00</div>
+        <div
+            *ngFor="let city of (selectedCity$ | async)?.list | slice: 0:12"
+            class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border"
+        >
+            <!-- <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie> -->
+            <img src="http://openweathermap.org/img/wn/{{ city.weather[0].icon }}@2x.png" alt="" />
+            <div class="text-center">{{ city.main.temp }} &deg; C</div>
+            <div class="text-center">{{ city.date | date: 'HH:mm' }}</div>
         </div>
     </div>
 </div>

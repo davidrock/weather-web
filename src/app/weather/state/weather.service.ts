@@ -13,7 +13,6 @@ export class WeatherService {
         this.http
             .get<Forecast>(`${environment.forecastApiUrl}?q=${city}&appid=${environment.weatherApiKey}&units=metric`)
             .subscribe((forecast: Forecast) => {
-              debugger
                 this.weatherStore.addUniqueWeather(forecast);
             });
     }

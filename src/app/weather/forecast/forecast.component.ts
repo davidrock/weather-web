@@ -23,6 +23,6 @@ export class ForecastComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // this.defaultCities.forEach(city => this.weatherService.getWeather(city));
+        this.defaultCities.forEach(city => this.weatherService.getWeather(city));
     }
 }

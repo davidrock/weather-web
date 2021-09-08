@@ -15,5 +15,6 @@ export interface List {
     pop: number;
     sys: Sys;
     dt_txt: string;
+    date: Date;
     rain?: Rain;
 }
