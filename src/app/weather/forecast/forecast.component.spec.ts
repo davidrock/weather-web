@@ -10,6 +10,7 @@ import { WeatherService } from '../state/weather.service';
 import { WeatherModule } from '../weather.module';
 
 import { ForecastComponent } from './forecast.component';
+import { HourlyWeatherComponent } from '../components/hourly-weather/hourly-weather.component';
 
 describe('ForecastComponent', () => {
     let component: ForecastComponent;
@@ -20,8 +21,8 @@ describe('ForecastComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [MockModule(WeatherModule)],
-            declarations: [ForecastComponent, MockComponent(CityCardComponent)],
+            imports: [],
+            declarations: [ForecastComponent, MockComponent(CityCardComponent), MockComponent(HourlyWeatherComponent)],
             providers: [
                 {
                     provide: WeatherService,
