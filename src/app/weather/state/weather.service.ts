@@ -1,17 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CityService } from 'src/app/services/city.service';
+import { DataService } from '../../shared/data-acess/data.service';
 import { Forecast } from 'src/app/shared/models/forecast.model';
-import { environment } from 'src/environments/environment';
 import { WeatherStore } from './weather.store';
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
-    constructor(private weatherStore: WeatherStore, private cityService: CityService, private http: HttpClient) {}
+    constructor(private weatherStore: WeatherStore, private data: DataService, private http: HttpClient) {}
 
     getWeather(city: string): void {
         this.http
-            .get<Forecast>(`${environment.forecastApiUrl}?q=${city}&appid=${environment.weatherApiKey}&units=metric`)
+            .get<Forecast>(`${this.data.forecastApiUrl}?q=${city}&appid=${this.data.weatherApiKey}&units=metric`)
             .subscribe((forecast: Forecast) => {
                 this.weatherStore.addUniqueWeather(forecast);
             });

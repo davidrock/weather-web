@@ -9,6 +9,19 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherModule } from './weather/weather.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataModule } from './shared/data-acess/data.module';
+import { EnvironmentConfig } from './shared/data-acess/data.service';
+
+const dataConfig: EnvironmentConfig = {
+    environment: {
+        production: false,
+        weatherApiKey: environment.weatherApiKey,
+        forecastApiUrl: environment.forecastApiUrl,
+        pixabayApiKey: environment.pixabayApiKey,
+        pixabayApiUrl: environment.pixabayApiUrl,
+        pexelsApiKey: environment.pexelsApiKey,
+    },
+};
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule,
         environment.production ? [] : AkitaNgDevtools.forRoot(),
         AkitaNgRouterStoreModule,
+        DataModule.forRoot(dataConfig),
     ],
     bootstrap: [AppComponent],
 })
