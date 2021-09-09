@@ -5,8 +5,4 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './general.component.html',
     styleUrls: ['./general.component.scss'],
 })
-export class GeneralComponent implements OnInit {
-    ngOnInit(): void {
-        console.log('General carregado');
-    }
-}
+export class GeneralComponent {}

@@ -6,7 +6,7 @@ export class WeatherQueryMock {
     readonly forecast$: Observable<Forecast[] | undefined>;
     readonly selectedCity$: Observable<Forecast | undefined>;
 
-    constructor(protected store: WeatherStore) {
+    constructor() {
         this.forecast$ = of([]);
         this.selectedCity$ = of(undefined);
     }

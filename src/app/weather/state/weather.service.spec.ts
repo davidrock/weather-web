@@ -1,7 +1,7 @@
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { DataModule } from 'src/app/shared/data-acess/data.module';
-import { EnvironmentConfig, DataService } from 'src/app/shared/data-acess/data.service';
+import { DataModule } from '../../shared/data-acess/data.module';
+import { EnvironmentConfig, DataService } from '../../shared/data-acess/data.service';
 import { WeatherStoreMock } from './mocks/weather.store.mock';
 import { WeatherService } from './weather.service';
 import { WeatherStore } from './weather.store';

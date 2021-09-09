@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
-import { CityService } from 'src/app/services/city.service';
-import { Forecast } from 'src/app/shared/models/forecast.model';
+import { CityService } from '../../../services/city.service';
+import { Forecast } from '../../../shared/models/forecast.model';
 import { WeatherService } from '../../state/weather.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class CityCardComponent implements OnInit {
     optWindy: AnimationOptions;
 
     constructor(private cityService: CityService, private weatherService: WeatherService) {
-        this.bgImage = 'https://source.unsplash.com/random/800x600';
+        this.bgImage = `https://source.unsplash.com/random/800x600?sig=${this.city}`;
         this.optStorm = {
             path: 'assets/animations/storm.json',
         };
@@ -35,16 +35,12 @@ export class CityCardComponent implements OnInit {
     };
 
     ngOnInit(): void {
-        console.log(this.city);
         this.findImage();
     }
 
     findImage(): void {
-        this.bgImage = `https://source.unsplash.com/random/800x600?sig=${this.city}`;
-
         if (this.city) {
             this.cityService.getCityImage(this.city.city.name).subscribe(res => {
-                console.log(res);
                 this.bgImage = res.hits[0].webformatURL;
             });
         }

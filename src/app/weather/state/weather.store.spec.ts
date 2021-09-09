@@ -6,7 +6,7 @@ describe('WeatherStore', () => {
     let store: WeatherStore;
 
     beforeEach(() => {
-        store = TestBed.get(WeatherStore);
+        store = TestBed.inject(WeatherStore);
     });
 
     it('should create an instance', () => {

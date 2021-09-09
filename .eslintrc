@@ -21,8 +21,8 @@
   "overrides": [
     {
       "files": [
-        "*/*.spec.ts",
-        "*/*.mock.ts"
+        "*.spec.ts",
+        "*.mock.ts"
       ],
       "rules": {
         "no-empty-function": "off",

@@ -1,4 +1,4 @@
-<a (click)="openCity(city)">
+<a (click)="openCity(city)" *ngIf="city !== undefined">
     <div class="flex w-60 h-60">
         <div class="h-full w-full rounded-3xl bg-cover" [style.background-image]="'url(' + bgImage + ')'">
             <div class="flex flex-col justify-around bg-blue-50 w-full h-full bg-opacity-20 bg-cover">
@@ -6,11 +6,11 @@
                 <div class="flex flex-row justify-around">
                     <div class="flex flex-col p-2 text-white font-bold text-xl bg-black bg-opacity-30 rounded-3xl">
                         <!-- <ng-lottie [styles]="styles" [options]="optSunny"></ng-lottie> -->
-                        <div class="mt-2">{{ city!.list[0]?.main?.temp }} &deg;C</div>
+                        <div class="mt-2">{{ city ? city.list[0].main.temp : '-' }} &deg;C</div>
                     </div>
                     <div class="flex flex-col p-2 text-white font-bold text-xl bg-black bg-opacity-30 rounded-3xl">
                         <!-- <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie> -->
-                        <div class="mt-2">{{ city!.list[0]?.wind?.speed }} m/s</div>
+                        <div class="mt-2">{{ city ? city.list[0]?.wind?.speed : '-' }} m/s</div>
                     </div>
                 </div>
             </div>
