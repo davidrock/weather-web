@@ -12,27 +12,19 @@ import { WeatherService } from '../../state/weather.service';
 export class CityCardComponent implements OnInit {
     @Input('city') city: Forecast | undefined;
     bgImage: string;
-    optStorm: AnimationOptions;
-    optSunny: AnimationOptions;
     optWindy: AnimationOptions;
-
-    constructor(private cityService: CityService, private weatherService: WeatherService) {
-        this.bgImage = `https://source.unsplash.com/random/800x600?sig=${this.city}`;
-        this.optStorm = {
-            path: 'assets/animations/storm.json',
-        };
-        this.optSunny = {
-            path: 'assets/animations/sunny.json',
-        };
-        this.optWindy = {
-            path: 'assets/animations/windy-cloud.json',
-        };
-    }
 
     styles: Partial<CSSStyleDeclaration> = {
         maxWidth: '50px',
         margin: '0 auto',
     };
+
+    constructor(private cityService: CityService, private weatherService: WeatherService) {
+        this.bgImage = `https://source.unsplash.com/random/800x600?sig=${this.city}`;
+        this.optWindy = {
+            path: 'assets/animations/windy-cloud.json',
+        };
+    }
 
     ngOnInit(): void {
         this.findImage();

@@ -11,6 +11,7 @@ import { DataModule } from '../../../shared/data-acess/data.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { mockForecast } from '../../state/mocks/mock';
+import { LottieModule } from 'ngx-lottie';
 
 const dataConfig: EnvironmentConfig = {
     environment: {
@@ -32,7 +33,7 @@ describe('CityCardComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [CityCardComponent],
-            imports: [HttpClientTestingModule, DataModule.forRoot(dataConfig)],
+            imports: [HttpClientTestingModule, DataModule.forRoot(dataConfig), LottieModule],
             providers: [
                 {
                     provide: WeatherQuery,
