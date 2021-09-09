@@ -28,10 +28,7 @@ const dataConfig: EnvironmentConfig = {
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule,
         WeatherModule,
-        FormsModule,
-        ReactiveFormsModule,
         environment.production ? [] : AkitaNgDevtools.forRoot(),
         AkitaNgRouterStoreModule,
         DataModule.forRoot(dataConfig),

@@ -12,17 +12,4 @@ import { WeatherService } from './weather/state/weather.service';
 })
 export class AppComponent {
     title = 'weather-forecaster';
-    forecast$: Observable<Forecast[]>;
-    form: FormGroup;
-
-    constructor(private weatherService: WeatherService, private weatherQuery: WeatherQuery, private fb: FormBuilder) {
-        this.forecast$ = this.weatherQuery.forecast$ as Observable<Forecast[]>;
-        this.form = this.fb.group({
-            city: '',
-        });
-    }
-
-    click(): void {
-        this.weatherService.getWeather(this.form.value.city);
-    }
 }
