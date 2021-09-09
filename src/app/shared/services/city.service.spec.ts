@@ -1,7 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { DataModule } from '../shared/data-acess/data.module';
-import { EnvironmentConfig } from '../shared/data-acess/data.service';
+import { DataModule } from '../data-acess/data.module';
+import { EnvironmentConfig } from '../data-acess/data.service';
 
 import { CityService } from './city.service';
 

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataService } from '../shared/data-acess/data.service';
-import { Pixabay } from '../shared/models/pixabay.model';
+import { DataService } from '../data-acess/data.service';
+import { Pixabay } from '../models/pixabay.model';
 
 @Injectable({
     providedIn: 'root',

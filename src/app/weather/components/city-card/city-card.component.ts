@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
-import { CityService } from '../../../services/city.service';
+import { CityService } from '../../../shared/services/city.service';
 import { Forecast } from '../../../shared/models/forecast.model';
 import { WeatherService } from '../../state/weather.service';
 

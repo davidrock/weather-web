@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EnvironmentConfig } from '../../../shared/data-acess/data.service';
-import { CityService } from '../../../services/city.service';
-import { CityServiceMock } from '../../../services/mocks/city.service.mock';
+import { CityService } from '../../../shared/services/city.service';
+import { CityServiceMock } from '../../../shared/services/mocks/city.service.mock';
 import { WeatherQueryMock } from '../../state/mocks/weather.query.mock';
 import { WeatherQuery } from '../../state/weather.query';
 import { WeatherService } from '../../state/weather.service';
