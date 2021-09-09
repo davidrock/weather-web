@@ -9,9 +9,13 @@ export class CityServiceMock {
 
     getCityImage(name: string): Observable<Pixabay> {
         return of({
-            hits: [],
-            totalHits: 0,
-            total: 0,
+            total: 1,
+            totalHits: 1,
+            hits: [
+                {
+                    webformatURL: 'https://pixabay.com/get/123.jpg',
+                },
+            ],
         });
     }
 }

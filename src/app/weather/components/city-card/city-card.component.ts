@@ -38,12 +38,14 @@ export class CityCardComponent implements OnInit {
         this.findImage();
     }
 
-    findImage(): void {
-        if (this.city) {
-            this.cityService.getCityImage(this.city.city.name).subscribe(res => {
-                this.bgImage = res.hits[0].webformatURL;
-            });
+    private findImage(): void {
+        if (!this.city) {
+            return;
         }
+
+        this.cityService.getCityImage(this.city.city.name).subscribe(res => {
+            this.bgImage = res.hits[0].webformatURL;
+        });
     }
 
     openCity(city: Forecast | undefined): void {

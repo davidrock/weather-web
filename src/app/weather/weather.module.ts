@@ -6,6 +6,7 @@ import { CityCardComponent } from './components/city-card/city-card.component';
 import { LottieModule } from 'ngx-lottie';
 // import player, { LottiePlayer } from 'lottie-web/build/player/lottie_svg';
 import { HourlyWeatherComponent } from './components/hourly-weather/hourly-weather.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // export function playerFactory(): LottiePlayer {
 //     return player;
@@ -13,6 +14,6 @@ import { HourlyWeatherComponent } from './components/hourly-weather/hourly-weath
 
 @NgModule({
     declarations: [ForecastComponent, CityCardComponent, HourlyWeatherComponent],
-    imports: [CommonModule, WeatherRoutingModule /*LottieModule.forRoot({ player: playerFactory })*/],
+    imports: [CommonModule, HttpClientModule, WeatherRoutingModule /*LottieModule.forRoot({ player: playerFactory })*/],
 })
 export class WeatherModule {}

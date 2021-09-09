@@ -42,9 +42,13 @@ describe('CityService', () => {
         const expectedUrl = `${dataConfig.environment.pixabayApiUrl}?key=${dataConfig.environment.pixabayApiKey}&q=city&image_type=photo&orientation=horizontal&category=business`;
         const spyService = jest.spyOn(service, 'getCityImage');
         const mocResponse = {
-            total: 0,
-            totalHits: 0,
-            hits: [],
+            total: 11,
+            totalHits: 11,
+            hits: [
+                {
+                    webformatURL: 'https://pixabay.com/get/123.jpg',
+                },
+            ],
         };
 
         service.getCityImage('city').subscribe(response => {
