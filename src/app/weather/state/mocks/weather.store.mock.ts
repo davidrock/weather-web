@@ -1,7 +1,14 @@
+import { Store } from '@datorama/akita';
+import { Forecast } from '../../../shared/models/forecast.model';
+import { WeatherState } from '../weather.store';
+import { mockForecast } from './mock';
+
 export class WeatherStoreMock {
-    constructor() {}
+    addUniqueWeather(data: Forecast): void {}
 
-    addUniqueWeather(): void {}
+    setSelectedCity(data: Forecast): void {}
 
-    setSelectedCity(): void {}
+    getValue(): WeatherState {
+        return { forecast: [mockForecast] };
+    }
 }
