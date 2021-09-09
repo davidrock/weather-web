@@ -6,7 +6,6 @@
             *ngFor="let city of (selectedCity$ | async)?.list | slice: 0:12"
             class="flex flex-col shadow-sm bg-white w-24 sm:w-32 p-2 rounded-3xl border"
         >
-            <!-- <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie> -->
             <img src="http://openweathermap.org/img/wn/{{ city.weather[0].icon }}@2x.png" alt="" />
             <div class="text-center">{{ city.main.temp }} &deg; C</div>
             <div class="text-center">{{ city.date | date: 'HH:mm' }}</div>
