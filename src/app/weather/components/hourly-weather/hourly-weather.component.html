@@ -1,9 +1,10 @@
 <div class="container mx-auto mt-16">
-    <h1 class="text-2xl">{{ (selectedCity$ | async)?.city?.name }}</h1>
-    <div class="grid grid-flow-col justify-between mt-4">
+    <h1 class="text-2xl text-gray-700">{{ (selectedCity$ | async)?.city?.name }} - Next hours forecast</h1>
+    <hr class="my-4" />
+    <div class="grid grid-cols-4 gap-4 lg:grid-cols-6 justify-between mt-4">
         <div
             *ngFor="let city of (selectedCity$ | async)?.list | slice: 0:12"
-            class="flex flex-col shadow-sm bg-white w-24 p-2 rounded-3xl border"
+            class="flex flex-col shadow-sm bg-white w-24 sm:w-32 p-2 rounded-3xl border"
         >
             <!-- <ng-lottie [styles]="styles" [options]="optWindy"></ng-lottie> -->
             <img src="http://openweathermap.org/img/wn/{{ city.weather[0].icon }}@2x.png" alt="" />
