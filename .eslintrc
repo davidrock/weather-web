@@ -8,9 +8,6 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": [
-      "error"
-    ],
     "@typescript-eslint/no-unused-vars": [
       "error"
     ],
@@ -26,9 +23,7 @@
       ],
       "rules": {
         "no-empty-function": "off",
-        "@typescript-eslint/no-empty-function": [
-          "warning"
-        ]
+        "@typescript-eslint/no-empty-function": 0
       }
     }
   ]

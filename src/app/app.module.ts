@@ -6,11 +6,10 @@ import { AppRoutingModule } from './app.routing.module';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
 import { WeatherModule } from './weather/weather.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataModule } from './shared/data-acess/data.module';
 import { EnvironmentConfig } from './shared/data-acess/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const dataConfig: EnvironmentConfig = {
     environment: {
@@ -31,6 +30,7 @@ const dataConfig: EnvironmentConfig = {
         WeatherModule,
         environment.production ? [] : AkitaNgDevtools.forRoot(),
         AkitaNgRouterStoreModule,
+        HttpClientModule,
         DataModule.forRoot(dataConfig),
     ],
     bootstrap: [AppComponent],

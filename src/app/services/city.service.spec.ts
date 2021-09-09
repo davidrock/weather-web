@@ -1,11 +1,9 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
 import { DataModule } from '../shared/data-acess/data.module';
-import { DataService, EnvironmentConfig } from '../shared/data-acess/data.service';
+import { EnvironmentConfig } from '../shared/data-acess/data.service';
 
 import { CityService } from './city.service';
-import { CityServiceMock } from './mocks/city.service.mock';
 
 const dataConfig: EnvironmentConfig = {
     environment: {
@@ -20,17 +18,14 @@ const dataConfig: EnvironmentConfig = {
 
 describe('CityService', () => {
     let service: CityService;
-    let dataService: DataService;
     let httpMock: HttpTestingController;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule, DataModule.forRoot(dataConfig)],
-            // providers: [{ provide: CityService, useClass: CityServiceMock }],
             providers: [CityService],
         });
         service = TestBed.inject(CityService);
-        dataService = TestBed.inject(DataService);
         httpMock = TestBed.inject(HttpTestingController);
     });
 

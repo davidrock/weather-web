@@ -1,7 +1,8 @@
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { DataModule } from '../../shared/data-acess/data.module';
-import { EnvironmentConfig, DataService } from '../../shared/data-acess/data.service';
+import { EnvironmentConfig } from '../../shared/data-acess/data.service';
+import { mockForecast } from './mocks/mock';
 import { WeatherStoreMock } from './mocks/weather.store.mock';
 import { WeatherService } from './weather.service';
 import { WeatherStore } from './weather.store';
@@ -19,9 +20,8 @@ const dataConfig: EnvironmentConfig = {
 
 describe('WeatherService', () => {
     let weatherService: WeatherService;
-    let httpMock: HttpTestingController;
     let weatherStore: WeatherStore;
-    let data: DataService;
+    let httpMock: HttpTestingController;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -31,16 +31,37 @@ describe('WeatherService', () => {
                     provide: WeatherStore,
                     useClass: WeatherStoreMock,
                 },
+                WeatherService,
             ],
         });
 
         weatherService = TestBed.inject(WeatherService);
-        httpMock = TestBed.inject(HttpTestingController);
         weatherStore = TestBed.inject(WeatherStore);
-        data = TestBed.inject(DataService);
+        httpMock = TestBed.inject(HttpTestingController);
     });
 
     it('should be created', () => {
         expect(weatherService).toBeTruthy();
+    });
+
+    it('should getWeather call addUniqueWeather if success', () => {
+        const expectedUrl = `${dataConfig.environment.forecastApiUrl}?q=city&appid=${dataConfig.environment.weatherApiKey}&units=metric`;
+        const spyAddUniqueWeather = jest.spyOn(weatherStore, 'addUniqueWeather');
+
+        weatherService.getWeather('city');
+
+        const request = httpMock.expectOne(expectedUrl);
+        request.flush({});
+
+        expect(request.request.method).toBe('GET');
+        expect(spyAddUniqueWeather).toHaveBeenCalled();
+    });
+
+    it('should setSelectedCity call store to set selected city', () => {
+        const spyStoreSetSelectedCity = jest.spyOn(weatherStore, 'setSelectedCity');
+
+        weatherService.setSelectedCity(mockForecast);
+
+        expect(spyStoreSetSelectedCity).toHaveBeenCalledWith(mockForecast);
     });
 });
